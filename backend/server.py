@@ -6,7 +6,9 @@ from database.repository import (
     IpRepository, WindowsRepository, UsersRepository
     )
 from api.controlers import LogsController
+from database.db import init_db
 
+init_db()
 
 # Repos
 log_repo = LogRepository()
@@ -30,6 +32,7 @@ def register_routes():
     app.register_blueprint(keylogger_bp)
     app.register_blueprint(home_bp)
 #routes
+
 
 
 if __name__ == '__main__':
