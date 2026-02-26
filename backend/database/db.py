@@ -5,6 +5,7 @@ from contextlib import contextmanager
 engine = create_engine("sqlite:///database/keylogger.db", echo=False)
 SessionLocal = sessionmaker(bind=engine, autoflush=False)
 Base = declarative_base()
+Base.metadata.create_all(bind=engine)
 
 @contextmanager
 def get_db_session():
@@ -17,3 +18,4 @@ def get_db_session():
         raise
     finally:
         session.close()
+
