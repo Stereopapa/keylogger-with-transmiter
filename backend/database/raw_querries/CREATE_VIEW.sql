@@ -1,6 +1,6 @@
-DROP VIEW main_logs_view;
+DROP VIEW IF EXISTS main_logs_view;
 
-CREATE VIEW main_logs_view AS
+CREATE VIEW IF NOT EXISTS  main_logs_view AS
 SELECT 
 	
 	datetime(logs.timestamp, 'unixepoch') AS time,
