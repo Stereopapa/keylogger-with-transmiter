@@ -44,3 +44,4 @@ agent/packages
 *.db
 *.db-journal
 *.nupkg
+*.zip
