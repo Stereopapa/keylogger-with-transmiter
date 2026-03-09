@@ -17,6 +17,7 @@ ARM64/
 *.sln.docstates
 *.aps
 *.ncb
+vcpkg_installed
 
 _deps/
 googletest-build/

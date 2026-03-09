@@ -18,7 +18,7 @@ from utils.http_utils import get_ip_addr
 #     app.run(host="127.0.0.1", port=80)
 
 @pytest.mark.request_validation
-def test_localhost_request_validation():
+def test_localhost():
     from server import app, log_controller
 
     @app.route("/test/collect", methods=["POST"])
