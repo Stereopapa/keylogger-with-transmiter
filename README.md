@@ -227,6 +227,8 @@ python server.py
 
 The agent will transmit logs to the backend server.
 
+**Note** You need to adjust the addresses in server.py and Keylogger.app main.cpp so it matches the vms network settings
+
 ------------------------------------------------------------------------
 
 # Viewing Data
